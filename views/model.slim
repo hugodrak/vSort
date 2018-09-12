@@ -1,0 +1,4 @@
+.item_box
+  - Models.all(:generation_id => params[:generation]).each do |b|
+    .item
+      a href="/brand/#{params[:brand]}/serie/#{params[:serie]}/generation/#{params[:generation]}/model/#{b.id}" = b.coupe

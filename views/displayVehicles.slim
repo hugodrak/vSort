@@ -1,0 +1,51 @@
+- vehicles = session[:vehicles]
+- powertrains = []
+- models = []
+- generations = []
+- series = []
+- brands = []
+- vehicles.each { |val| powertrains << Powertrains.first(:id => val['powertrain'].to_i).attributes }
+- vehicles.each { |val| models << Models.first(:id => val['model'].to_i).attributes }
+- vehicles.each { |val| generations << Generations.first(:id => val['generation'].to_i).attributes }
+- vehicles.each { |val| series << Series.first(:id => val['serie'].to_i).attributes }
+- vehicles.each { |val| brands << Brands.first(:id => val['brand'].to_i).attributes }
+
+h1 Engine
+table
+	- powertrains[0].each_with_index do |val, i|
+		tr
+			td class="c1" = val[0]
+			- vehicles.length.times do |time|
+				td class="c#{time+3}" = powertrains[time].values[i]
+
+h1 Dimensions
+table
+	- models[0].each_with_index do |val, i|
+		tr
+			td class="c1" = val[0]
+			- vehicles.length.times do |time|
+				td class="c#{time+3}" = models[time].values[i]
+
+h1 Safety
+table
+	- generations[0].each_with_index do |val, i|
+		tr
+			td class="c1" = val[0]
+			- vehicles.length.times do |time|
+				td class="c#{time+3}" = generations[time].values[i]
+
+h1 Productions
+table
+	- series[0].each_with_index do |val, i|
+		tr
+			td class="c1" = val[0]
+			- vehicles.length.times do |time|
+				td class="c#{time+3}" = series[time].values[i]
+
+h1 Brand
+table
+	- brands[0].each_with_index do |val, i|
+		tr
+			td class="c1" = val[0]
+			- vehicles.length.times do |time|
+				td class="c#{time+3}" = brands[time].values[i]

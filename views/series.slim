@@ -1,0 +1,4 @@
+.item_box
+  - Series.all(:brand_id => @id, :order => [ :begining.desc ]).each do |b|
+    .item
+      a href="/brand/#{b.brand_id}/serie/#{b.id}" = b.name

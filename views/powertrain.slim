@@ -1,0 +1,5 @@
+.item_box
+  - Powertrains.all(:model_id => params[:model]).each do |b|
+    .item
+      - p b
+      a href="/brand/#{params[:brand]}/serie/#{params[:serie]}/generation/#{params[:generation]}/model/#{params[:model]}/powertrain/#{b.id}" = b.name

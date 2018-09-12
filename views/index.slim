@@ -1,0 +1,4 @@
+.item_box
+    - Brands.all(:order => [ :clicks.desc ]).each do |b|
+        .item
+            a href="/brand/#{b.name}" = b.name

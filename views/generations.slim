@@ -1,0 +1,4 @@
+.item_box
+  - Generations.all(:series_id => params[:serie], :order => [ :begining.desc ]).each do |b|
+    .item
+      a href="/brand/#{params[:brand]}/serie/#{b.series_id}/generation/#{b.id}" = b.name
